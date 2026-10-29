@@ -7,15 +7,23 @@
 ---
 
 ## 📑 Daftar Isi
-1. [Latar Belakang & Analisis Studi Kasus](#1-latar-belakang--analisis-studi-kasus)
-2. [Prinsip RESTful API & Arsitektur MVC](#2-prinsip-restful-api--arsitektur-mvc)
-3. [Perancangan & Migrasi Database](#3-perancangan--migrasi-database)
-4. [Eloquent ORM & Relasi Antar Model](#4-eloquent-orm--relasi-antar-model)
-5. [Autentikasi Token dengan Laravel Sanctum](#5-autentikasi-token-dengan-laravel-sanctum)
-6. [Struktur Kode & Pembuatan API Terstruktur](#6-struktur-kode--pembuatan-api-terstruktur)
-7. [Daftar Endpoint & Pengujian API](#7-daftar-endpoint--pengujian-api)
-8. [Panduan Step-by-Step Publikasi ke GitHub](#8-panduan-step-by-step-publikasi-ke-github)
-9. [Tips Masuk ke GitHub Explore & Portofolio](#9-tips-masuk-ke-github-explore--portofolio)
+1. [Demo Rekaman Aplikasi (http://127.0.0.1:8000/)](#-demo-rekaman-aplikasi-http1270018000)
+2. [Latar Belakang & Analisis Studi Kasus](#1-latar-belakang--analisis-studi-kasus)
+3. [Prinsip RESTful API & Arsitektur MVC](#2-prinsip-restful-api--arsitektur-mvc)
+4. [Perancangan & Migrasi Database](#3-perancangan--migrasi-database)
+5. [Eloquent ORM & Relasi Antar Model](#4-eloquent-orm--relasi-antar-model)
+6. [Autentikasi Token dengan Laravel Sanctum](#5-autentikasi-token-dengan-laravel-sanctum)
+7. [Struktur Kode & Pembuatan API Terstruktur](#6-struktur-kode--pembuatan-api-terstruktur)
+8. [Daftar Endpoint & Pengujian API](#7-daftar-endpoint--pengujian-api)
+9. [Panduan Step-by-Step Publikasi ke GitHub](#8-panduan-step-by-step-publikasi-ke-github)
+10. [Tips Masuk ke GitHub Explore & Portofolio](#9-tips-masuk-ke-github-explore--portofolio)
+
+---
+
+## 📺 Demo Rekaman Aplikasi (http://127.0.0.1:8000/)
+
+Tonton rekaman video pengujian langsung fitur antarmuka landing page, katalog alat laboratorium, autentikasi, dan pengujian API:  
+👉 **[Tonton Video Demo Aplikasi: Studi Kasus RESTful API Laravel.webm](https://github.com/codysantoso/labpinjam-api/blob/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm)**
 
 ---
 

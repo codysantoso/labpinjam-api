@@ -13,6 +13,8 @@
 Silakan baca panduan lengkap arsitektur dan langkah belajar di:
 👉 **[DOKUMENTASI LENGKAP: dokumentasi.md](./dokumentasi.md)**
 
+🎥 **[Tonton Video Demo Aplikasi: Studi Kasus RESTful API Laravel.webm](./Studi%20Kasus%20RESTful%20API%20Laravel.webm)** (Akses langsung di GitHub: [Tonton di sini](https://github.com/codysantoso/labpinjam-api/blob/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm))
+
 Materi yang dibahas di dalamnya:
 1. **Analisis Studi Kasus Nyata:** Kebutuhan sistem peminjaman alat lab.
 2. **Prinsip RESTful & Arsitektur MVC:** Stateless, HTTP methods, HTTP response codes, dan alur request lifecycle.
