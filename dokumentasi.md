@@ -23,7 +23,13 @@
 ## 📺 Demo Rekaman Aplikasi (http://127.0.0.1:8000/)
 
 Tonton rekaman video pengujian langsung fitur antarmuka landing page, katalog alat laboratorium, autentikasi, dan pengujian API:  
-👉 **[Tonton Video Demo Aplikasi: Studi Kasus RESTful API Laravel.webm](https://github.com/codysantoso/labpinjam-api/blob/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm)**
+👉 **[Buka & Tonton Video Demo: Studi Kasus RESTful API Laravel.webm](https://github.com/codysantoso/labpinjam-api/blob/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm)**
+
+<p align="center">
+  <video src="https://github.com/codysantoso/labpinjam-api/raw/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm" controls="controls" width="100%">
+    Video demo aplikasi LabPinjam dapat dilihat di: <a href="https://github.com/codysantoso/labpinjam-api/blob/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm">Studi Kasus RESTful API Laravel.webm</a>
+  </video>
+</p>
 
 ---
 

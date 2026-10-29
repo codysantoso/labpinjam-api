@@ -13,7 +13,13 @@
 Silakan baca panduan lengkap arsitektur dan langkah belajar di:
 👉 **[DOKUMENTASI LENGKAP: dokumentasi.md](./dokumentasi.md)**
 
-🎥 **[Tonton Video Demo Aplikasi: Studi Kasus RESTful API Laravel.webm](./Studi%20Kasus%20RESTful%20API%20Laravel.webm)** (Akses langsung di GitHub: [Tonton di sini](https://github.com/codysantoso/labpinjam-api/blob/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm))
+🎥 **[Tonton Video Demo Aplikasi: Studi Kasus RESTful API Laravel.webm](https://github.com/codysantoso/labpinjam-api/blob/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm)**
+
+<p align="center">
+  <video src="https://github.com/codysantoso/labpinjam-api/raw/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm" controls="controls" width="100%">
+    Video demo antarmuka dan API: <a href="https://github.com/codysantoso/labpinjam-api/blob/main/Studi%20Kasus%20RESTful%20API%20Laravel.webm">Studi Kasus RESTful API Laravel.webm</a>
+  </video>
+</p>
 
 Materi yang dibahas di dalamnya:
 1. **Analisis Studi Kasus Nyata:** Kebutuhan sistem peminjaman alat lab.
