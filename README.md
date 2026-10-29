@@ -29,7 +29,7 @@ Materi yang dibahas di dalamnya:
 
 ### 1. Klon Repositori & Install Dependensi
 ```bash
-git clone https://github.com/username-kamu/labpinjam-api.git
+git clone https://github.com/codysantoso/labpinjam-api.git
 cd labpinjam-api
 composer install
 ```
@@ -68,4 +68,4 @@ Spesifikasi interaktif OpenAPI 3.0 tersedia di berkas [`openapi.yaml`](./openapi
 ---
 
 ## 📄 Lisensi
-Didistribusikan di bawah Lisensi MIT. Bebas digunakan untuk bahan ajar dan referensi open-source.
+Didistribusikan di bawah Lisensi GPL-3.0 / MIT. Bebas digunakan untuk bahan ajar dan referensi open-source.
