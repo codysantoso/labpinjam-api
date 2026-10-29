@@ -1,0 +1,320 @@
+
+openapi: 3.0.3
+
+info:
+  title: LabPinjam API
+  version: 1.0.0
+  description: >
+    RESTful API untuk sistem peminjaman alat laboratorium kampus.
+    Dikembangkan sebagai studi kasus pembelajaran Laravel,
+    MVC, Eloquent ORM, MySQL, dan autentikasi API.
+
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Server Laravel lokal
+
+tags:
+  - name: Autentikasi
+    description: Login dan logout pengguna
+  - name: Alat
+    description: Pengelolaan inventaris laboratorium
+  - name: Peminjaman
+    description: Pengajuan dan pengelolaan peminjaman
+
+paths:
+  /login:
+    post:
+      tags:
+        - Autentikasi
+      summary: Login pengguna
+      description: Memvalidasi email dan password pengguna.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: mahasiswa@kampus.ac.id
+                password:
+                  type: string
+                  format: password
+                  example: password123
+      responses:
+        "200":
+          description: Login berhasil
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Login berhasil
+                  token:
+                    type: string
+                    example: your-access-token
+        "401":
+          description: Email atau password salah
+
+  /logout:
+    post:
+      tags:
+        - Autentikasi
+      summary: Logout pengguna
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Logout berhasil
+        "401":
+          description: Token tidak valid
+
+  /alats:
+    get:
+      tags:
+        - Alat
+      summary: Menampilkan daftar alat
+      responses:
+        "200":
+          description: Daftar alat berhasil diambil
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Alat"
+
+    post:
+      tags:
+        - Alat
+      summary: Menambahkan alat (Admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - kode_alat
+                - nama_alat
+                - stok
+              properties:
+                kode_alat:
+                  type: string
+                  example: LAB-001
+                nama_alat:
+                  type: string
+                  example: ESP32 DevKit
+                stok:
+                  type: integer
+                  minimum: 0
+                  example: 10
+                kondisi:
+                  type: string
+                  example: Baik
+      responses:
+        "201":
+          description: Alat berhasil ditambahkan
+        "401":
+          description: Belum terautentikasi
+        "403":
+          description: Akses hanya untuk Admin
+        "422":
+          description: Validasi input gagal
+
+  /alats/{id}:
+    get:
+      tags:
+        - Alat
+      summary: Melihat detail alat
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Detail alat ditemukan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Alat"
+        "404":
+          description: Alat tidak ditemukan
+
+    put:
+      tags:
+        - Alat
+      summary: Memperbarui alat (Admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AlatInput"
+      responses:
+        "200":
+          description: Alat berhasil diperbarui
+        "401":
+          description: Belum terautentikasi
+        "403":
+          description: Akses ditolak
+        "404":
+          description: Alat tidak ditemukan
+        "422":
+          description: Validasi input gagal
+
+    delete:
+      tags:
+        - Alat
+      summary: Menghapus alat (Admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Alat berhasil dihapus
+        "401":
+          description: Belum terautentikasi
+        "403":
+          description: Akses ditolak
+        "404":
+          description: Alat tidak ditemukan
+
+  /peminjamans:
+    get:
+      tags:
+        - Peminjaman
+      summary: Melihat daftar peminjaman
+      description: Mahasiswa hanya boleh melihat transaksinya sendiri.
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Daftar peminjaman berhasil diambil
+        "401":
+          description: Belum terautentikasi
+        "403":
+          description: Akses ditolak
+
+    post:
+      tags:
+        - Peminjaman
+      summary: Mengajukan peminjaman alat
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - alat_id
+                - jumlah
+                - tanggal_pinjam
+                - tanggal_kembali
+              properties:
+                alat_id:
+                  type: integer
+                  example: 1
+                jumlah:
+                  type: integer
+                  minimum: 1
+                  example: 2
+                tanggal_pinjam:
+                  type: string
+                  format: date
+                  example: "2026-11-02"
+                tanggal_kembali:
+                  type: string
+                  format: date
+                  example: "2026-11-04"
+      responses:
+        "201":
+          description: Pengajuan peminjaman berhasil
+        "401":
+          description: Belum terautentikasi
+        "422":
+          description: Data tidak valid atau stok tidak mencukupi
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Sanctum Token atau JWT
+      description: Masukkan token akses yang diterbitkan backend.
+
+  schemas:
+    Alat:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        kode_alat:
+          type: string
+          example: LAB-001
+        nama_alat:
+          type: string
+          example: ESP32 DevKit
+        stok:
+          type: integer
+          example: 10
+        kondisi:
+          type: string
+          example: Baik
+
+    AlatInput:
+      type: object
+      required:
+        - kode_alat
+        - nama_alat
+        - stok
+      properties:
+        kode_alat:
+          type: string
+          example: LAB-001
+        nama_alat:
+          type: string
+          example: ESP32 DevKit
+        stok:
+          type: integer
+          minimum: 0
+          example: 10
+        kondisi:
+          type: string
+          example: Baik
